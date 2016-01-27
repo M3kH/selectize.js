@@ -1198,7 +1198,7 @@ $.extend(Selectize.prototype, {
 	 */
 	registerOptionGroup: function(data) {
 		var key = hash_key(data[this.settings.optgroupValueField]);
-		if (!key) return false;
+		if (typeof parseInt(key) !== 'number') return false;
 
 		data.$order = data.$order || ++this.order;
 		this.optgroups[key] = data;
